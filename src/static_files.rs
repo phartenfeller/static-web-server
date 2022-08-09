@@ -97,7 +97,7 @@ pub async fn handle(
     // 1. Check if "directory listing" feature is enabled
     // if current path is a valid directory and
     // if it does not contain an `index.html` file (if a proper auto index is generated)
-    if dir_listing && auto_index && !filepath.as_ref().exists() {
+    if false && dir_listing && auto_index && !filepath.as_ref().exists() {
         return directory_listing(
             method,
             uri_path,
