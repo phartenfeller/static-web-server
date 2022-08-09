@@ -12,3 +12,11 @@ Makefile
 target
 .vscode
 release
+./static-web-server
+./build-docker.sh
+.github
+docker
+docs
+systemd
+target
+tests

@@ -1,3 +1,15 @@
+FROM rust:alpine3.16 as builder
+
+RUN mkdir /build
+
+COPY . /build
+
+RUN /build/build-server.sh
+
+
+
+
+
 FROM alpine:3.16
 
 ENV SERVER_VERSION=${SERVER_VERSION}
@@ -8,7 +20,7 @@ LABEL version="${SERVER_VERSION}" \
 
 RUN apk --no-cache add ca-certificates tzdata
 
-COPY ./static-web-server /usr/local/bin/
+COPY --from=builder /build/static-web-server /usr/local/bin/
 COPY ./docker/alpine/entrypoint.sh /
 COPY ./docker/public /public
 
