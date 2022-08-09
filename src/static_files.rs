@@ -62,7 +62,7 @@ pub async fn handle(
 
     // Check for a trailing slash on the current directory path
     // and redirect if that path doesn't end with the slash char
-    if auto_index && !uri_path.ends_with('/') {
+    if false && auto_index && !uri_path.ends_with('/') {
         let uri = [uri_path, "/"].concat();
         let loc = match HeaderValue::from_str(uri.as_str()) {
             Ok(val) => val,
